@@ -6,6 +6,8 @@ public class EnemyGFX : MonoBehaviour
 {
     public AIPath aiPath;
 
+    public CharactersArrayScript world;
+
     // Update is called once per frame
     void Update()
     {
@@ -16,5 +18,7 @@ public class EnemyGFX : MonoBehaviour
         {
             transform.localScale = new Vector3(10f, 10f, 10f);
         }
+
+        // if 
     }
 }

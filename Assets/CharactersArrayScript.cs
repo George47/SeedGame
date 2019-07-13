@@ -2,18 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharactersArrayScript : MonoBehaviour
-{
-    public bool StartGame = false;
-    
-    public Animator animator;
-
-    // Update is called once per frame
-    void Update()
+// namespace worldControl {
+    public class CharactersArrayScript : MonoBehaviour
     {
-        if (Input.GetButtonDown("n"))
+        public bool StartGame = false;
+        
+        public Animator animator;
+
+        // Update is called once per frame
+        void Update()
         {
-            StartGame = !StartGame;
+            if (Input.GetButtonDown("n"))
+            {
+                StartGame = !StartGame;
+            }
         }
     }
-}
+
+// }
