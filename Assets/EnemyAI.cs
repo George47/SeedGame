@@ -46,6 +46,16 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    void Update()
+    {
+        if (world.StartGame)
+        {
+            target = GameObject.Find("Player").transform;
+        } else 
+        {
+            target = GameObject.Find("Enemy2").transform;
+        }
+    }
 
     // Update is called once per frame
     void FixedUpdate()
