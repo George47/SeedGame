@@ -17,6 +17,17 @@ using UnityEngine;
                 StartGame = !StartGame;
             }
         }
+
+        public void setPlayer1()
+        {
+            StartGame = true;
+        }
+
+        public void setPlayer2()
+        {
+            StartGame = false;
+        }
+
     }
 
 // }
