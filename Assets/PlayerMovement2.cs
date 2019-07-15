@@ -6,7 +6,7 @@ using UnityEngine.Events;
 public class PlayerMovement2 : MonoBehaviour
 {
     public CharacterController controller;
-    public CharactersArrayScript world;
+    public CharacterSwitch world;
 
     public Animator animator;
 

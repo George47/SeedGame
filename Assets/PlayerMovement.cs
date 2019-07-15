@@ -7,7 +7,7 @@ using UnityEngine.Events;
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController controller;
-    public CharactersArrayScript world;
+    public CharacterSwitch world;
     public Animator animator;
     [SerializeField] float runSpeed = 40f;
 

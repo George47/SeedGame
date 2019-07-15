@@ -7,7 +7,7 @@ public class vcamChange : MonoBehaviour
 {
     public CinemachineVirtualCamera vcam;
 
-    public CharactersArrayScript world;
+    public CharacterSwitch world;
     // Start is called before the first frame update
     void Start()
     {

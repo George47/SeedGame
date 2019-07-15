@@ -8,7 +8,7 @@ public class EnemyAI : MonoBehaviour
 {
     public Transform target;
 
-    public CharactersArrayScript world;
+    public CharacterSwitch world;
 
     public float speed = 200f;
     public float nextWaypointDistance = 3f;

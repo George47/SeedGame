@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // namespace worldControl {
-    public class CharactersArrayScript : MonoBehaviour
+    public class CharacterSwitch : MonoBehaviour
     {
         public bool StartGame = false;
         

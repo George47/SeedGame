@@ -6,7 +6,7 @@ public class EnemyGFX : MonoBehaviour
 {
     public AIPath aiPath;
 
-    public CharactersArrayScript world;
+    public CharacterSwitch world;
 
     // Update is called once per frame
     void Update()
