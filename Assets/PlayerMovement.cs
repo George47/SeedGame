@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if (world.StartGame)
+        if (world.ActivePlayer == "Player1")
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (world.StartGame)
+        if (world.ActivePlayer == "Player1")
         {
             animator.SetBool("IsControlling", true);
             controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);

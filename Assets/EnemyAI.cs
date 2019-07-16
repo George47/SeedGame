@@ -48,10 +48,10 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
-        if (world.StartGame)
+        if (world.ActivePlayer == "Player1")
         {
             target = GameObject.Find("Player").transform;
-        } else 
+        } else if (world.ActivePlayer == "Player2")
         {
             target = GameObject.Find("Enemy2").transform;
         }

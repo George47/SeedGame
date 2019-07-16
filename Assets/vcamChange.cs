@@ -16,10 +16,10 @@ public class vcamChange : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (world.StartGame)
+        if (world.ActivePlayer == "Player1")
         {
             vcam.m_Follow = GameObject.Find("Player").transform;
-        } else 
+        } else if (world.ActivePlayer == "Player2")
         {
             vcam.m_Follow = GameObject.Find("Enemy2").transform;
         }

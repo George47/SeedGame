@@ -6,26 +6,31 @@ using UnityEngine;
     public class CharacterSwitch : MonoBehaviour
     {
         public bool StartGame = false;
+
+        public string ActivePlayer = "Player1";
         
         public Animator animator;
 
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetButtonDown("n"))
+            if (Input.GetButtonDown("1"))
             {
-                StartGame = !StartGame;
+                ActivePlayer = "Player1";
+            } else if (Input.GetButtonDown("2"))
+            {
+                ActivePlayer = "Player2";
             }
         }
 
         public void setPlayer1()
         {
-            StartGame = true;
+            ActivePlayer = "Player1";
         }
 
         public void setPlayer2()
         {
-            StartGame = false;
+            ActivePlayer = "Player2";
         }
 
     }
