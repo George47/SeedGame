@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-// using worldControl;
 
 public class PlayerMovement2 : MonoBehaviour
 {
     public CharacterController controller;
     public CharacterSwitch world;
+
     public Animator animator;
-    [SerializeField] float runSpeed = 40f;
+
+    // public Animator animator;
+    [SerializeField] float runSpeed = 80f;
 
     float horizontalMove = 0f;
     bool jump = false;
@@ -37,6 +39,7 @@ public class PlayerMovement2 : MonoBehaviour
             {
                 crouch = false;
             }
+
         }
     }
 
@@ -49,7 +52,6 @@ public class PlayerMovement2 : MonoBehaviour
     {
         if (world.ActivePlayer == "Player2")
         {
-            animator.SetBool("IsControlling", true);
             controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
             jump = false;
         }
