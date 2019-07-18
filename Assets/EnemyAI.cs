@@ -54,6 +54,9 @@ public class EnemyAI : MonoBehaviour
         } else if (world.ActivePlayer == "Player2")
         {
             target = GameObject.Find("Enemy2").transform;
+        } else if (world.ActivePlayer == "Player3")
+        {
+            target = GameObject.Find("Player2").transform;
         }
     }
 

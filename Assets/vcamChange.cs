@@ -22,6 +22,9 @@ public class vcamChange : MonoBehaviour
         } else if (world.ActivePlayer == "Player2")
         {
             vcam.m_Follow = GameObject.Find("Enemy2").transform;
+        } else if (world.ActivePlayer == "Player3")
+        {
+            vcam.m_Follow = GameObject.Find("Player2").transform;
         }
     }
 }

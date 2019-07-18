@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
     {
         public bool StartGame = false;
 
-        public string ActivePlayer = "Player1";
+        public string ActivePlayer = "Player3";
         
         public Animator animator;
 
