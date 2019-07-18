@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // namespace worldControl {
     public class CharacterSwitch : MonoBehaviour
@@ -20,6 +21,9 @@ using UnityEngine;
             } else if (Input.GetButtonDown("2"))
             {
                 ActivePlayer = "Player2";
+            } else if (Input.GetButtonDown("3"))
+            {
+                ActivePlayer = "Player3";
             }
         }
 
@@ -31,6 +35,12 @@ using UnityEngine;
         public void setPlayer2()
         {
             ActivePlayer = "Player2";
+        }
+
+        public void loadScene2()
+        {
+             SceneManager.LoadScene (sceneName:"Scene2");
+            //  SceneManager.UnloadScene (sceneName:"PlatformGame");
         }
 
     }

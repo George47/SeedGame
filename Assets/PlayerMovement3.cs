@@ -3,15 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class PlayerMovement2 : MonoBehaviour
+public class PlayerMovement3 : MonoBehaviour
 {
     public CharacterController2D controller;
     public CharacterSwitch world;
-
     public Animator animator;
-
-    // public Animator animator;
-    [SerializeField] float runSpeed = 80f;
+    [SerializeField] float runSpeed = 40f;
 
     float horizontalMove = 0f;
     bool jump = false;
@@ -20,11 +17,11 @@ public class PlayerMovement2 : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if (world.ActivePlayer == "Player2")
+        if (world.ActivePlayer == "Player3")
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+            // animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
 
             if (Input.GetButtonDown("Jump"))
             {
@@ -39,7 +36,6 @@ public class PlayerMovement2 : MonoBehaviour
             {
                 crouch = false;
             }
-
         }
     }
 
@@ -50,8 +46,9 @@ public class PlayerMovement2 : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (world.ActivePlayer == "Player2")
+        if (world.ActivePlayer == "Player3")
         {
+            // animator.SetBool("IsControlling", true);
             controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
             jump = false;
         }

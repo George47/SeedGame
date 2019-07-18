@@ -12,10 +12,10 @@ GameObject:
   - component: {fileID: 8040855233348957613}
   - component: {fileID: 8040855233348957612}
   - component: {fileID: 8040855233348957608}
-  - component: {fileID: 8040855233348957611}
   - component: {fileID: 8040855233348957609}
   - component: {fileID: 8040855233348957783}
   - component: {fileID: 8040855233348957782}
+  - component: {fileID: 6300543094421533335}
   m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
@@ -120,53 +120,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51ea8dc8c19b2bc48856b80c311aaff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 8040855233348957611}
+  controller: {fileID: 6300543094421533335}
   world: {fileID: 0}
   animator: {fileID: 8040855233348957612}
   runSpeed: 41.92
---- !u!114 &8040855233348957611
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8040855233348957615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6adf5412698da064186257d8e4314204, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_JumpForce: 800
-  m_CrouchSpeed: 0.36
-  m_MovementSmoothing: 0.05
-  m_AirControl: 0
-  m_WhatIsGround:
-    serializedVersion: 2
-    m_Bits: 2615
-  m_GroundCheck: {fileID: 8040855233361875717}
-  m_CeilingCheck: {fileID: 8040855234759511132}
-  m_CrouchDisableCollider: {fileID: 8040855233348957783}
-  OnLandEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8040855233348957608}
-        m_MethodName: OnLanding
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  OnCrouchEvent:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: CharacterController+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!50 &8040855233348957609
 Rigidbody2D:
   serializedVersion: 4
@@ -230,6 +187,49 @@ CircleCollider2D:
   m_Offset: {x: 0.0029273923, y: -0.09092164}
   serializedVersion: 2
   m_Radius: 0.07363827
+--- !u!114 &6300543094421533335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8040855233348957615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3daa3e112ac15734bbc24016b2ae73e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_JumpForce: 800
+  m_CrouchSpeed: 0.36
+  m_MovementSmoothing: 0.05
+  m_AirControl: 1
+  m_WhatIsGround:
+    serializedVersion: 2
+    m_Bits: 567
+  m_GroundCheck: {fileID: 8040855233361875717}
+  m_CeilingCheck: {fileID: 8040855234759511132}
+  m_CrouchDisableCollider: {fileID: 0}
+  OnLandEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 8040855233348957608}
+        m_MethodName: OnLanding
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  OnCrouchEvent:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: CharacterController2D+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &8040855233361875716
 GameObject:
   m_ObjectHideFlags: 0
