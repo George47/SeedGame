@@ -19,6 +19,8 @@ public class EnemyAI : MonoBehaviour
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
 
+    public int Health = 3;
+
     Seeker seeker;
     Rigidbody2D rb;
 
@@ -48,6 +50,11 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
+        if (Health <= 0)
+        {
+            Destroy(gameObject);
+        }
+
         if (world.ActivePlayer == "Player1")
         {
             target = GameObject.Find("Player").transform;
@@ -97,5 +104,11 @@ public class EnemyAI : MonoBehaviour
             enemyGFX.localScale = new Vector3(10f, 10f, 10f);
         }
 
+    }
+
+    public void TakeDamage (int Damage)
+    {
+        Health -= Damage;
+        Debug.Log("Damage Taken");
     }
 }

@@ -14,14 +14,6 @@ public class PlayerMovement3 : MonoBehaviour
     bool jump = false;
     bool crouch = false;
 
-    public Animation anim;
-    private float animSpeed = 1f;
-
-    void Start()
-    {
-        anim = GetComponent<Animation>();
-        anim["name of animation"].speed = animSpeed;
-    }
 
     // Update is called once per frame
     void Update ()
