@@ -8,11 +8,20 @@ public class PlayerMovement3 : MonoBehaviour
     public CharacterController2D controller;
     public CharacterSwitch world;
     public Animator animator;
-    [SerializeField] float runSpeed = 40f;
+    [SerializeField] float runSpeed = 120f;
 
     float horizontalMove = 0f;
     bool jump = false;
     bool crouch = false;
+
+    public Animation anim;
+    private float animSpeed = 1f;
+
+    void Start()
+    {
+        anim = GetComponent<Animation>();
+        anim["name of animation"].speed = animSpeed;
+    }
 
     // Update is called once per frame
     void Update ()
@@ -21,13 +30,15 @@ public class PlayerMovement3 : MonoBehaviour
         {
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-            // animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+            animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+
+            SetAnimationByKey("z", "IsAttacking");
 
             if (Input.GetButtonDown("Jump"))
             {
                 jump = true;
                 // animator.SetBool("IsJumping", true);
-            }            
+            }      
 
             if (Input.GetButtonDown("Crouch"))
             {
@@ -36,6 +47,17 @@ public class PlayerMovement3 : MonoBehaviour
             {
                 crouch = false;
             }
+        }
+    }
+
+    void SetAnimationByKey(string button, string attribute)
+    {
+        if (Input.GetButtonDown(button))
+        {
+            animator.SetBool(attribute, true);
+        } else if (Input.GetButtonUp("z"))
+        {
+            animator.SetBool(attribute, false);
         }
     }
 
