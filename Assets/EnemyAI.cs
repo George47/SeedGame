@@ -20,6 +20,7 @@ public class EnemyAI : MonoBehaviour
     bool reachedEndOfPath = false;
 
     public int Health = 3;
+    public bool IsAttacked = false;
 
     Seeker seeker;
     Rigidbody2D rb;
@@ -31,6 +32,8 @@ public class EnemyAI : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
+
+        // GameObject.Find("EnemyHP").SetActive(false);
     }
 
     void UpdatePath()
@@ -50,9 +53,12 @@ public class EnemyAI : MonoBehaviour
 
     void Update()
     {
+        Debug.Log(IsAttacked);
+
         if (Health <= 0)
         {
             Destroy(gameObject);
+            GameObject.Find("EnemyHP").SetActive(false);
         }
 
         if (world.ActivePlayer == "Player1")
@@ -106,8 +112,9 @@ public class EnemyAI : MonoBehaviour
 
     }
 
-    public void TakeDamage (int Damage)
+    public void TakeDamage(int Damage)
     {
+        // GameObject.Find("EnemyHP").SetActive(true);
         Health -= Damage;
         Debug.Log("Damage Taken");
     }

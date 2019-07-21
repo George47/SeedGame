@@ -12,6 +12,8 @@ public class Player2Attack : MonoBehaviour
     public float AttackRange;
     public int Damage;
 
+    // public GameObject bloodEffect;
+
     // Update is called once per frame
     void Update()
     {
@@ -20,9 +22,12 @@ public class Player2Attack : MonoBehaviour
             if (Input.GetButtonDown("z"))
             {
                 Debug.Log("attacked");
+                // EnemyAI Enemy = GetComponent<EnemyAI>();
+
                 Collider2D[] EnemyToDamage = Physics2D.OverlapCircleAll(AttackPosition.position, AttackRange, IsEnemy);
                 for (int i = 0; i < EnemyToDamage.Length; i++)
                 {
+                    // Enemy.IsAttacked = true;
                     EnemyToDamage[i].GetComponent<EnemyAI>().TakeDamage(Damage);
                 }
             }
@@ -32,8 +37,8 @@ public class Player2Attack : MonoBehaviour
         //     AttackGap = Time.deltaTime;
         // }      
     }
-
-    private void OnDrawGizmosSelected() 
+ 
+    void OnDrawGizmosSelected() 
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(AttackPosition.position, AttackRange);
