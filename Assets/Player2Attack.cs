@@ -17,8 +17,8 @@ public class Player2Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (AttackGap <= 0)
-        {
+        // if (AttackGap <= 0)
+        // {
             if (Input.GetButtonDown("z"))
             {
                 Debug.Log("attacked");
@@ -32,10 +32,10 @@ public class Player2Attack : MonoBehaviour
                 }
             }
 
-            AttackGap = StartTimeAttackGap;
-        } else {
-            AttackGap -= Time.deltaTime;
-        }      
+        //     AttackGap = StartTimeAttackGap;
+        // } else {
+        //     AttackGap -= Time.deltaTime;
+        // }      
     }
  
     void OnDrawGizmosSelected() 
