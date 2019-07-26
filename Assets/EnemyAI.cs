@@ -19,17 +19,22 @@ public class EnemyAI : MonoBehaviour
     int currentWaypoint = 0;
     bool reachedEndOfPath = false;
 
-    public int Health = 3;
+    // public int Health = 3;
     public bool IsAttacked = false;
 
     Seeker seeker;
     Rigidbody2D rb;
+
+    HealthSystem healthSystem = new HealthSystem(3);
+    public int Health;
 
     // Start is called before the first frame update
     void Start()
     {
         seeker = GetComponent<Seeker>();
         rb = GetComponent<Rigidbody2D>();
+        
+        Health = healthSystem.GetHealth();
 
         InvokeRepeating("UpdatePath", 0f, 0.5f);
 
