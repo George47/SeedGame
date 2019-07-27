@@ -14,6 +14,12 @@ public class PlayerMovement3 : MonoBehaviour
     bool jump = false;
     bool crouch = false;
 
+    public GameObject projectile;
+    public Transform shotPoint;
+    public float offset;
+
+    private float timeBtwShots;
+    public float startTimeBtwShots;
 
     // Update is called once per frame
     void Update ()
@@ -23,8 +29,9 @@ public class PlayerMovement3 : MonoBehaviour
             horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
             animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-
+            
             SetAnimationByKey("z", "IsAttacking");
+            // SetAnimationByKey("x", "IsRange");
 
             if (Input.GetButtonDown("Jump"))
             {
@@ -39,15 +46,41 @@ public class PlayerMovement3 : MonoBehaviour
             {
                 crouch = false;
             }
+
+
+            // firing ranged attackeed
+            if (timeBtwShots <= 0)
+            {
+                if (Input.GetButtonDown("x"))
+                {
+                    animator.SetBool("IsRange", true);
+                    Instantiate(projectile, shotPoint.position, transform.rotation);
+
+                } else if (Input.GetButtonUp("x"))
+                {
+                    animator.SetBool("IsRange", false);
+                }
+            } else 
+            {
+                timeBtwShots -= Time.deltaTime;
+            }
+
         }
+
+
     }
 
     void SetAnimationByKey(string button, string attribute)
     {
+        var animation = animator.GetBool(attribute);
+
         if (Input.GetButtonDown(button))
         {
-            animator.SetBool(attribute, true);
-        } else if (Input.GetButtonUp("z"))
+            if (!animation){
+                animator.SetBool(attribute, true);
+            }
+
+        } else if (Input.GetButtonUp(button))
         {
             animator.SetBool(attribute, false);
         }
